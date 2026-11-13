@@ -17,19 +17,24 @@
   <header class="site-header">
     <div class="container header-inner">
       <a class="wordmark" href="#inicio" aria-label="Inicio">PORTFOLIO<span>.</span></a>
+
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menú">
         <span></span><span></span>
       </button>
+
       <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
-        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#inicio">Inicio</a>
         <a href="#proyectos">Proyectos</a>
-        <a href="#conocimientos">Conocimientos</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#sobre-mi">Sobre mí</a>
         <a href="#contacto" class="nav-contact">Contacto <span>↗</span></a>
       </nav>
     </div>
   </header>
 
   <main id="inicio">
+
+    <!-- INICIO -->
     <section class="hero container">
       <div class="hero-copy reveal">
         <div>
@@ -38,32 +43,19 @@
         </div>
         <p class="hero-description">Creo piezas visuales con personalidad para ayudar a marcas e ideas a destacar.</p>
       </div>
-      <a class="scroll-cue" href="#sobre-mi"><span></span> DESLIZÁ PARA CONOCERME</a>
+
+      <a class="scroll-cue" href="#proyectos">
+        <span></span> DESLIZÁ PARA VER MIS PROYECTOS
+      </a>
     </section>
 
-    <section id="sobre-mi" class="section container">
-      <div class="section-top reveal">
-        <span class="section-number">01 / PERFIL</span>
-        <h2>Sobre mí</h2>
-      </div>
-      <div class="about-layout reveal">
-        <div class="about-main">
-          <p class="lead"><strong>Me llamo Ignacio,</strong> soy diseñador gráfico freelance, tengo 15 años y vivo en Buenos Aires, Argentina.</p>
-          <p>He ayudado a distintas personas y empresas a impulsar sus negocios a través del diseño gráfico. Me gusta transformar ideas en piezas visuales claras, atractivas y pensadas para comunicar.</p>
-        </div>
-        <aside class="about-note">
-          <span class="note-line"></span>
-          <p>Creatividad, atención al detalle y una mirada enfocada en lo que cada proyecto necesita.</p>
-          <span class="note-location">BUENOS AIRES, ARGENTINA</span>
-        </aside>
-      </div>
-    </section>
-
+    <!-- PROYECTOS -->
     <section id="proyectos" class="section container">
       <div class="section-top reveal">
-        <span class="section-number">02 / SELECCIÓN</span>
+        <span class="section-number">01 / SELECCIÓN</span>
         <h2>Proyectos</h2>
       </div>
+
       <p class="section-intro reveal">Aquí podrás ver algunos de mis trabajos.</p>
 
       <div class="project-grid">
@@ -154,40 +146,108 @@
       </div>
     </section>
 
-    <section id="conocimientos" class="section container">
+    <!-- SERVICIOS -->
+    <section id="servicios" class="section container">
       <div class="section-top reveal">
-        <span class="section-number">03 / HABILIDADES</span>
-        <h2>Conocimientos</h2>
+        <span class="section-number">02 / LO QUE HAGO</span>
+        <h2>Servicios</h2>
       </div>
-      <div class="skills-list reveal">
-        <div class="skill-row">
-          <span class="skill-name">Diseño gráfico</span>
-          <span class="skill-level">Avanzado</span>
-          <div class="skill-bar"><i style="--progress:90%"></i></div>
-        </div>
-        <div class="skill-row">
-          <span class="skill-name">HTML</span>
-          <span class="skill-level">Intermedio</span>
-          <div class="skill-bar"><i style="--progress:62%"></i></div>
-        </div>
-        <div class="skill-row">
-          <span class="skill-name">CSS</span>
-          <span class="skill-level">Intermedio</span>
-          <div class="skill-bar"><i style="--progress:62%"></i></div>
-        </div>
-        <div class="skill-row">
-          <span class="skill-name">Inteligencia Artificial</span>
-          <span class="skill-level">Avanzado</span>
-          <div class="skill-bar"><i style="--progress:90%"></i></div>
-        </div>
+
+      <p class="section-intro reveal">Cada proyecto tiene algo que comunicar. Mi trabajo es darle forma visual a esa idea.</p>
+
+      <div class="services-grid">
+
+        <article class="service-card reveal">
+          <div class="service-card-top">
+            <span class="service-number">01</span>
+            <span class="service-icon" aria-hidden="true">✳</span>
+          </div>
+          <div class="service-card-content">
+            <h3>Identidad visual y logotipos</h3>
+            <p>Diseño identidades visuales que reflejan la personalidad de cada marca. Desde el logotipo hasta los colores y recursos gráficos que construyen una imagen coherente y reconocible.</p>
+          </div>
+          <span class="service-arrow" aria-hidden="true">↗</span>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-card-top">
+            <span class="service-number">02</span>
+            <span class="service-icon" aria-hidden="true">▧</span>
+          </div>
+          <div class="service-card-content">
+            <h3>Diseño para redes sociales</h3>
+            <p>Creo publicaciones, historias y contenido visual para redes sociales, cuidando que cada pieza mantenga la identidad de la marca y comunique su mensaje con claridad.</p>
+          </div>
+          <span class="service-arrow" aria-hidden="true">↗</span>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-card-top">
+            <span class="service-number">03</span>
+            <span class="service-icon" aria-hidden="true">▤</span>
+          </div>
+          <div class="service-card-content">
+            <h3>Flyers y piezas publicitarias</h3>
+            <p>Diseño flyers, carteles y materiales promocionales para comunicar eventos, productos o servicios. Busco que cada composición transmita el mensaje de forma directa y atractiva.</p>
+          </div>
+          <span class="service-arrow" aria-hidden="true">↗</span>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-card-top">
+            <span class="service-number">04</span>
+            <span class="service-icon" aria-hidden="true">▣</span>
+          </div>
+          <div class="service-card-content">
+            <h3>Piezas digitales</h3>
+            <p>Desarrollo recursos gráficos para distintos medios digitales, como banners, portadas y presentaciones, adaptando cada diseño al formato y al objetivo que necesita.</p>
+          </div>
+          <span class="service-arrow" aria-hidden="true">↗</span>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-card-top">
+            <span class="service-number">05</span>
+            <span class="service-icon" aria-hidden="true">▧</span>
+          </div>
+          <div class="service-card-content">
+            <h3>Diseño editorial y packaging</h3>
+            <p>Trabajo en publicaciones, composiciones editoriales y propuestas gráficas para envases. Cuido la organización de la información y los detalles que hacen que cada pieza funcione.</p>
+          </div>
+          <span class="service-arrow" aria-hidden="true">↗</span>
+        </article>
+
       </div>
     </section>
 
+    <!-- SOBRE MÍ -->
+    <section id="sobre-mi" class="section container">
+      <div class="section-top reveal">
+        <span class="section-number">03 / PERFIL</span>
+        <h2>Sobre mí</h2>
+      </div>
+
+      <div class="about-layout reveal">
+        <div class="about-main">
+          <p class="lead"><strong>Me llamo Ignacio,</strong> soy diseñador gráfico freelance, tengo 15 años y vivo en Buenos Aires, Argentina.</p>
+          <p>He ayudado a distintas personas y empresas a impulsar sus negocios a través del diseño gráfico. Me gusta transformar ideas en piezas visuales claras, atractivas y pensadas para comunicar.</p>
+        </div>
+
+        <aside class="about-note">
+          <span class="note-line"></span>
+          <p>Creatividad, atención al detalle y una mirada enfocada en lo que cada proyecto necesita.</p>
+          <span class="note-location">BUENOS AIRES, ARGENTINA</span>
+        </aside>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
     <section id="contacto" class="section container contact-section">
       <div class="section-top reveal">
         <span class="section-number">04 / HABLEMOS</span>
         <h2>Contacto</h2>
       </div>
+
       <div class="contact-panel reveal">
         <div>
           <p class="eyebrow">¿TENÉS UNA IDEA?</p>
@@ -197,6 +257,7 @@
           </h3>
           <p class="contact-copy">Si tenés un proyecto en mente, podés escribirme por acá.</p>
         </div>
+
         <div class="contact-actions">
           <a class="contact-link" href="https://wa.me/595555555" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -205,6 +266,7 @@
             <span><small>WHATSAPP</small>+595555555</span>
             <b>↗</b>
           </a>
+
           <a class="contact-link" href="https://www.instagram.com/123ejemplo/" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.2-3.5a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4Z"/>
@@ -215,16 +277,19 @@
         </div>
       </div>
     </section>
+
   </main>
 
-  <!-- Ventana ampliada de proyectos -->
+  <!-- VENTANA AMPLIADA DE PROYECTOS -->
   <dialog class="project-dialog" aria-labelledby="project-dialog-title">
     <div class="project-dialog-panel">
       <button class="project-dialog-close" type="button" aria-label="Cerrar proyecto">×</button>
+
       <div class="project-dialog-preview">
         <span class="project-dialog-preview-icon" aria-hidden="true">✳</span>
         <span>VISTA PREVIA DEL PROYECTO</span>
       </div>
+
       <div class="project-dialog-info">
         <p class="project-type" id="project-dialog-type">ESPACIO PARA PROYECTO</p>
         <span class="project-dialog-number" id="project-dialog-number">01 / 05</span>
@@ -234,6 +299,7 @@
     </div>
   </dialog>
 
+  <!-- FOOTER -->
   <footer class="container site-footer">
     <a class="wordmark" href="#inicio">PORTFOLIO<span>.</span></a>
     <span>DISEÑO GRÁFICO · BUENOS AIRES, ARGENTINA</span>
