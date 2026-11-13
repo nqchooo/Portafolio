@@ -216,6 +216,29 @@ h2 { font-size: clamp(36px,5vw,56px); line-height: 1; letter-spacing: -.07em; ma
 .project-type { font-size: 8px; letter-spacing: .13em; color: var(--green-dim); margin: 0 0 8px; }
 .project-card-title { display: block; font-size: 17px; line-height: 1.25; letter-spacing: -.04em; font-weight: 700; max-width: 130px; }
 .project-arrow { position: absolute; right: 17px; bottom: 18px; color: #71806b; font-size: 14px; }
+.project-card-with-image { gap: 12px; }
+.project-card-art {
+  display: flex; align-items: center; justify-content: center;
+  width: 100%; height: 112px; overflow: hidden;
+  border-radius: 7px; background: #fff;
+}
+.project-card-art img {
+  display: block; width: 100%; height: 100%; object-fit: contain;
+}
+.project-card-with-image .project-card-title { max-width: calc(100% - 28px); }
+.project-dialog-image {
+  display: block; width: 100%; max-height: clamp(230px,42vw,390px);
+  object-fit: contain; background: #fff;
+}
+.project-dialog-image[hidden] { display: none; }
+.project-dialog-preview:has(.project-dialog-image:not([hidden])) {
+  padding: 0; gap: 0; background: #fff;
+}
+.project-dialog-preview:has(.project-dialog-image:not([hidden])) .project-dialog-preview-icon,
+.project-dialog-preview:has(.project-dialog-image:not([hidden])) [data-i18n="previewLabel"] {
+  display: none;
+}
+
 
 /* VENTANA AMPLIADA DE PROYECTOS */
 .project-dialog {
