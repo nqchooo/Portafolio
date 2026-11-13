@@ -1,4 +1,3 @@
-
 /* =========================================
    TRADUCCIONES
 ========================================= */
@@ -15,6 +14,7 @@ const translations = {
     menuOpen: "Abrir menú",
     menuClose: "Cerrar menú",
     homeLabel: "Inicio",
+
     heroEyebrow: "DISEÑADOR GRÁFICO FREELANCE · BUENOS AIRES",
     heroPhrases: ["Diseño = Más clientes.", "Potencia tu negocio."],
     heroDescription: "Creo piezas visuales con personalidad para ayudar a marcas e ideas a destacar.",
@@ -25,18 +25,21 @@ const translations = {
     projectsIntro: "Aquí podrás ver algunos de mis trabajos.",
     projectPlaceholder: "ESPACIO PARA PROYECTO",
     projectIdentity: "Identidad visual",
+    projectSter: "Ster",
     projectDigital: "Diseño digital",
     projectSocial: "Contenido para redes",
     projectPackaging: "Diseño de packaging",
     projectPersonal: "Proyecto personal",
 
     projectDescriptions: {
-      identity: "En este espacio podrás mostrar el concepto, la identidad y las aplicaciones de una marca.",
+      identity: "Logo de una empresa estilo minimalista.",
       digital: "Acá podrás presentar diseños para sitios web, interfaces y otras piezas digitales.",
       social: "Un espacio para mostrar publicaciones, historias y campañas para redes sociales.",
       packaging: "Acá se podrán apreciar el diseño del envase, sus detalles y sus distintas aplicaciones.",
       personal: "Un lugar para compartir experimentos visuales, exploraciones y proyectos propios."
     },
+
+    projectImageAlt: "Logo de una empresa estilo minimalista.",
 
     servicesNumber: "02 / LO QUE HAGO",
     servicesTitle: "Servicios",
@@ -94,6 +97,7 @@ const translations = {
     menuOpen: "Open menu",
     menuClose: "Close menu",
     homeLabel: "Home",
+
     heroEyebrow: "FREELANCE GRAPHIC DESIGNER · BUENOS AIRES",
     heroPhrases: ["Design = More customers.", "Give your business a boost."],
     heroDescription: "I create distinctive visuals that help brands and ideas stand out.",
@@ -104,18 +108,21 @@ const translations = {
     projectsIntro: "Here are some of the projects I have worked on.",
     projectPlaceholder: "PROJECT PLACEHOLDER",
     projectIdentity: "Visual identity",
+    projectSter: "Ster",
     projectDigital: "Digital design",
     projectSocial: "Social media content",
     projectPackaging: "Packaging design",
     projectPersonal: "Personal project",
 
     projectDescriptions: {
-      identity: "A space to showcase a brand's concept, visual identity, and applications.",
+      identity: "A minimalist-style company logo.",
       digital: "A place to present website designs, interfaces, and other digital assets.",
       social: "A space to showcase social media posts, stories, and campaigns.",
       packaging: "A place to present packaging design, its details, and different applications.",
       personal: "A space to share visual experiments, explorations, and personal projects."
     },
+
+    projectImageAlt: "Minimalist-style company logo.",
 
     servicesNumber: "02 / WHAT I DO",
     servicesTitle: "Services",
@@ -179,6 +186,23 @@ const projectDialog = document.querySelector(".project-dialog");
 
 
 /* =========================================
+   DATOS DE LOS PROYECTOS
+========================================= */
+
+const projectTitleKeys = {
+  identity: "projectSter",
+  digital: "projectDigital",
+  social: "projectSocial",
+  packaging: "projectPackaging",
+  personal: "projectPersonal"
+};
+
+const projectTypeKeys = {
+  identity: "projectIdentity"
+};
+
+
+/* =========================================
    CAMBIO DE IDIOMA
 ========================================= */
 
@@ -212,39 +236,41 @@ function setLanguage(language) {
     }
   });
 
-  // Actualizar tarjetas de proyectos
+  // Actualizar tarjetas de proyectos sin perder sus títulos ni tipos.
   document.querySelectorAll(".project-card[data-project-key]").forEach((card) => {
     const key = card.dataset.projectKey;
-
-    const titleKey = {
-      identity: "projectIdentity",
-      digital: "projectDigital",
-      social: "projectSocial",
-      packaging: "projectPackaging",
-      personal: "projectPersonal"
-    }[key];
-
-    card.dataset.projectTitle = text[titleKey];
-    card.dataset.projectType = text.projectPlaceholder;
-    card.dataset.projectDescription = text.projectDescriptions[key];
+    const titleKey = projectTitleKeys[key];
+    const typeKey = projectTypeKeys[key];
 
     const cardTitle = card.querySelector(".project-card-title");
     const cardType = card.querySelector(".project-type");
 
-    if (cardTitle) cardTitle.textContent = text[titleKey];
-    if (cardType) cardType.textContent = text.projectPlaceholder;
+    const title = text[titleKey] || text.dialogFallbackTitle;
+    const type = text[typeKey] || text.projectPlaceholder;
+    const description = text.projectDescriptions[key] || text.dialogFallbackDescription;
+
+    card.dataset.projectTitle = title;
+    card.dataset.projectType = type;
+    card.dataset.projectDescription = description;
+
+    if (cardTitle) {
+      cardTitle.textContent = title;
+    }
+
+    if (cardType) {
+      cardType.textContent = type;
+    }
   });
 
-  // Actualizar animación principal
+  // Actualizar animación principal.
   if (typewriter) {
     typewriter.dataset.phrases = JSON.stringify(text.heroPhrases);
     typewriter.setAttribute("aria-label", text.heroPhrases.join(" "));
-    typewriter.textContent = text.heroPhrases[0];
 
     restartHeroTypewriter();
   }
 
-  // Actualizar animación de contacto
+  // Actualizar animación de contacto.
   if (contactTypewriter) {
     contactTypewriter.setAttribute("aria-label", text.contactAria);
 
@@ -263,7 +289,7 @@ function setLanguage(language) {
     wordmark.setAttribute("aria-label", text.homeLabel);
   }
 
-  // Actualizar botones de idioma
+  // Actualizar botones de idioma.
   languageButtons.forEach((button) => {
     const active = button.dataset.language === language;
 
@@ -278,7 +304,7 @@ function setLanguage(language) {
     );
   });
 
-  // Actualizar menú
+  // Actualizar menú.
   if (menuButton) {
     menuButton.setAttribute(
       "aria-label",
@@ -288,10 +314,12 @@ function setLanguage(language) {
     );
   }
 
-  // Actualizar modal si está abierto
+  // Actualizar ventana ampliada si está abierta.
   if (projectDialog && projectDialog.open) {
+    const selectedKey = projectDialog.dataset.projectKey;
+
     const selectedCard = document.querySelector(
-      `.project-card[data-project-key="${projectDialog.dataset.projectKey}"]`
+      `.project-card[data-project-key="${selectedKey}"]`
     );
 
     if (selectedCard) {
@@ -543,39 +571,76 @@ if ("IntersectionObserver" in window) {
 ========================================= */
 
 /**
+ * Actualiza la información de la ventana ampliada.
  * @param {HTMLElement} card
  */
 function updateProjectDialog(card) {
+  if (!projectDialog) return;
+
   const text = translations[currentLanguage];
   const key = card.dataset.projectKey;
 
-  const titleKey = {
-    identity: "projectIdentity",
-    digital: "projectDigital",
-    social: "projectSocial",
-    packaging: "projectPackaging",
-    personal: "projectPersonal"
-  }[key];
+  const titleKey = projectTitleKeys[key];
+  const typeKey = projectTypeKeys[key];
+
+  const title = text[titleKey] || text.dialogFallbackTitle;
+  const type = text[typeKey] || text.projectPlaceholder;
+  const description = text.projectDescriptions[key] || text.dialogFallbackDescription;
+
+  const dialogTitle = projectDialog.querySelector("#project-dialog-title");
+  const dialogType = projectDialog.querySelector("#project-dialog-type");
+  const dialogNumber = projectDialog.querySelector("#project-dialog-number");
+  const dialogDescription = projectDialog.querySelector("#project-dialog-description");
+  const dialogImage = projectDialog.querySelector("#project-dialog-image");
+  const previewIcon = projectDialog.querySelector(".project-dialog-preview-icon");
 
   projectDialog.dataset.projectKey = key;
 
-  projectDialog.querySelector(
-    "#project-dialog-title"
-  ).textContent = text[titleKey] || text.dialogFallbackTitle;
+  // Actualizar título, tipo, número y descripción.
+  if (dialogTitle) {
+    dialogTitle.textContent = title;
+  }
 
-  projectDialog.querySelector(
-    "#project-dialog-type"
-  ).textContent = text.projectPlaceholder;
+  if (dialogType) {
+    dialogType.textContent = type;
+  }
 
-  projectDialog.querySelector(
-    "#project-dialog-number"
-  ).textContent = `${card.dataset.projectNumber} / 05`;
+  if (dialogNumber) {
+    dialogNumber.textContent = `${card.dataset.projectNumber} / 05`;
+  }
 
-  projectDialog.querySelector(
-    "#project-dialog-description"
-  ).textContent = text.projectDescriptions[key] || text.dialogFallbackDescription;
+  if (dialogDescription) {
+    dialogDescription.textContent = description;
+  }
+
+  // Mostrar la imagen correspondiente si la tarjeta tiene una.
+  const imagePath = card.dataset.projectImage;
+
+  if (dialogImage && imagePath) {
+    dialogImage.src = imagePath;
+    dialogImage.alt = text.projectImageAlt;
+    dialogImage.hidden = false;
+
+    if (previewIcon) {
+      previewIcon.hidden = true;
+    }
+
+  } else if (dialogImage) {
+    // Si el proyecto no tiene imagen, volver a la vista previa genérica.
+    dialogImage.removeAttribute("src");
+    dialogImage.alt = "";
+    dialogImage.hidden = true;
+
+    if (previewIcon) {
+      previewIcon.hidden = false;
+    }
+  }
 }
 
+
+/* =========================================
+   APERTURA Y CIERRE DE LAS VENTANAS
+========================================= */
 
 if (projectDialog && typeof projectDialog.showModal === "function") {
   const closeDialogButton = projectDialog.querySelector(
