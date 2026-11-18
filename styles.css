@@ -1,13 +1,15 @@
 /* VARIABLES Y BASE */
 :root {
-  --bg: #090c09;
-  --surface: #111711;
-  --surface-2: #151d15;
-  --text: #f1f4ee;
-  --muted: #a2aca0;
-  --green: #a7ef75;
-  --green-dim: #6b9d4c;
-  --line: rgba(225,238,218,.13);
+  --bg: #090909;
+  --surface: #141414;
+  --surface-2: #1c1c1c;
+  --text: #f2f2f2;
+  --muted: #a1a1a1;
+
+  --green: #bdbdbd;
+  --green-dim: #777777;
+
+  --line: rgba(255,255,255,.12);
   --max: 1120px;
 }
 
